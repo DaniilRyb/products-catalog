@@ -1,9 +1,8 @@
-import {IProduct} from "./IProduct";
+import { IProduct } from './IProduct';
 
 export interface ICategory {
-    products: Readonly<IProduct[]>;
-    total:    number;
-    skip:     number;
-    limit:    number;
+  products: Readonly<IProduct[]>;
+  total: number;
+  skip: number;
+  limit: number;
 }
-
