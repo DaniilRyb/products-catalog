@@ -1,0 +1,14 @@
+.card-category {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ccc;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-category:hover {
+    background-color: #000;
+    color: #ccc;
+    transition: 1s background-color;
+}
