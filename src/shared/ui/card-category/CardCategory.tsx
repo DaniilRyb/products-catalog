@@ -7,7 +7,7 @@ type CardCategoryProps = {
 };
 export const CardCategory: FC<CardCategoryProps> = ({ category }) => {
   return (
-    <NavLink to={`/category/${category}`} className='text-decoration-none'>
+    <NavLink to={`/category/${category}`} className='text-decoration-none text-black'>
       <div className='card-category'>
         <h4 className='text-uppercase'>{category}</h4>
       </div>

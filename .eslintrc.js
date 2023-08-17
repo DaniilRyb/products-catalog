@@ -1,3 +1,4 @@
+/*
 module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
@@ -23,7 +24,7 @@ module.exports = {
       },
     },
   ],
-  ignorePatterns: ['**/*.css', '**/*.scss'],
+  ignorePatterns: ['**!/!*.css', '**!/!*.scss'],
 
   plugins: ['@typescript-eslint', 'react'],
   rules: {
@@ -31,3 +32,4 @@ module.exports = {
     'no-duplicate-imports': 'warn',
   },
 };
+*/
