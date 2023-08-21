@@ -3,34 +3,33 @@ import { getProducts } from './getProducts';
 import { ICategory } from '../../../../entities/interfaces/ICategory';
 
 type ApiResponse = {
-  status: "loading" | "success" | "error" | null,
-  data: ICategory | null,
-  error: string | null
-}
+  status: 'loading' | 'success' | 'error' | null;
+  data: ICategory | null;
+  error: string | null;
+};
 const initialState: ApiResponse = {
   status: null,
   data: null,
-  error: null
-}
+  error: null,
+};
 export const productsSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder.addCase(getProducts.pending, (state) => {
-      state.status = "loading"
-      state.data = null
-    })
+      state.status = 'loading';
+      state.data = null;
+    });
     builder.addCase(getProducts.fulfilled, (state, action: PayloadAction<ICategory>) => {
-      state.status = "success"
-      state.data = action.payload
-    })
+      state.status = 'success';
+      state.data = action.payload;
+    });
     builder.addCase(getProducts.rejected, (state, action) => {
-    state.status = "error"
-      state.error = action.payload as string
+      state.status = 'error';
+      state.error = action.payload as string;
+    });
+  },
+});
 
-    })
-  }
-})
-
-export const products = productsSlice.reducer
+export const products = productsSlice.reducer;

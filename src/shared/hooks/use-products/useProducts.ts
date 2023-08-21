@@ -3,16 +3,16 @@ import { useEffect } from 'react';
 import { getProducts } from '../../../store/slices/api/products/getProducts';
 
 export const useProducts = (productName: string | undefined) => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (productName) dispatch(getProducts(productName))
-  }, [])
+    if (productName) dispatch(getProducts(productName));
+  }, []);
 
-  const {data, error, status} = useAppSelector(state => state.products)
+  const { data, error, status } = useAppSelector((state) => state.products);
   return {
     data,
     error,
-    status
-  }
-}
+    status,
+  };
+};

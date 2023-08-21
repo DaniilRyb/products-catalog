@@ -1,4 +1,4 @@
-.card-category {
+.cardCategory {
   width: 300px;
   height: 300px;
   border: 1px solid #ccc;
@@ -7,8 +7,9 @@
   border-radius: 10px;
 }
 
-.card-category:hover {
+.cardCategory:hover {
   background-color: #000;
   color: #ccc;
   transition: 1s background-color;
+  border: none;
 }

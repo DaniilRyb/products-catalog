@@ -1,40 +1,39 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { CardCategory } from '../../shared/ui/card-category/CardCategory';
 import { useCategories } from '../../shared/hooks/use-categories/useCategories';
-import { Spinner } from 'react-bootstrap';
 import Skeleton from '../../shared/ui/skeleton/Skeleton';
+import { generateColors } from '../../shared/helpers/generateColor';
 
-const Home = () => {
-  const { data, status, error } = useCategories()
+export const Home: FC = () => {
+  const { data, status } = useCategories();
+  const colors: string[] = generateColors(data?.length ? data.length : 100);
 
   return (
     <div>
-      <h5 style={{ margin: '20px' }} className='text-uppercase'>
-        Категории
-      </h5>
-      {
-        status === "loading" && <div className='d-flex flex-wrap gap-2 justify-content-center'>
-          <Skeleton/>
-          <Skeleton/>
-          <Skeleton/>
-          <Skeleton/>
-          <Skeleton/>
-          <Skeleton/>
-          <Skeleton/>
-          <Skeleton/>
-
-        </div>
-      }
-      {
-        status === "success" &&
-        <div className='d-flex flex-wrap gap-2 justify-content-center'>
-          {data?.map((category) => (
-            <CardCategory category={category} />
-          ))}
-        </div>
-      }
+      <div>
+        <h5 style={{ margin: '20px' }} className='text-uppercase'>
+          Категории
+        </h5>
+        {status === 'loading' && (
+          <div className='d-flex flex-wrap gap-2 justify-content-center'>
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+          </div>
+        )}
+        {status === 'success' && (
+          <div className='d-flex flex-wrap gap-2 justify-content-center'>
+            {data?.map((category, index) => (
+              <CardCategory category={category} color={colors[index]} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
-
-export default Home;

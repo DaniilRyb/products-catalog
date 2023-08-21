@@ -3,9 +3,14 @@ import { useAppDispatch, useAppSelector } from '../../../store/typeHooks';
 import { getCategories } from '../../../store/slices/api/categories/getCategories';
 
 export const useCategories = () => {
-const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   useEffect(() => {
-dispatch(getCategories())
-  }, [])
-  return useAppSelector(state => state.categories)
-}
+    dispatch(getCategories());
+  }, []);
+  const { data, status, error } = useAppSelector((state) => state.categories);
+  return {
+    data,
+    status,
+    error,
+  };
+};

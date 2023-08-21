@@ -1,20 +1,19 @@
 .skeleton {
-    opacity: 0.7;
-    animation: skeleton-loading 1s linear infinite alternate;
-    width: 300px;
-    height: 300px;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-
 @keyframes skeleton-loading {
-    0% {
-        background-color: hsl(207, 11%, 83%);
-    }
+  0% {
+    background-color: hsl(207, 11%, 83%);
+  }
 
-    100% {
-        background-color: hsl(200, 20%, 95%);
-    }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
 }
