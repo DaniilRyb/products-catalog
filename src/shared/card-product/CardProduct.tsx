@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './CardProduct.css';
+import styles from './CardProduct.module.css';
 import { IProduct } from '../../entities/interfaces/IProduct';
 
 type CardProductProps = {
@@ -7,17 +7,23 @@ type CardProductProps = {
 };
 export const CardProduct: FC<CardProductProps> = ({ product }) => {
   return (
-    <div className='card-product'>
+    <div className={styles.cardProduct}>
       <div>
-        <img src={product.thumbnail} alt={product.brand} width='200px' height='200px' />
+        <img
+          src={product.thumbnail}
+          alt={product.brand}
+          width='300px'
+          height='300px'
+          style={{ borderRadius: '10px' }}
+        />
       </div>
-      <div className='m-0'>
-        <p className='p-0 m-0'>
+      <div className={styles.m0}>
+        <p className={styles.margin_padding0}>
           <strong>{product.title}</strong>
         </p>
       </div>
-      <div className='m-0'>
-        <p className='p-0 m-0'>{product.price}$</p>
+      <div className={styles.m0}>
+        <p className={styles.margin_padding0}>{product.price}$</p>
       </div>
     </div>
   );

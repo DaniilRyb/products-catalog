@@ -3,10 +3,18 @@
   height: 300px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  margin: 20px;
-  transition: 1s;
+  margin: 30px;
 }
 .cardProduct:hover {
-  opacity: .75;
-  transition: .75s opacity;
+  opacity: 0.75;
+  transition: 0.75s opacity;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.margin_padding-0 {
+  margin: 0;
+  padding: 0;
 }

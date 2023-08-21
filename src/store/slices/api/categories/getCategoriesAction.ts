@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export type CategoriesProducts = string[];
-export const getCategories = createAsyncThunk<
+export const getCategoriesAction = createAsyncThunk<
   CategoriesProducts,
   void,
   { rejectValue: string }
@@ -11,7 +11,7 @@ export const getCategories = createAsyncThunk<
     const { data } = await axios.get<CategoriesProducts>(
       'https://dummyjson.com/products/categories',
     );
-    console.log("https://dummyjson.com/products/categories", data);
+    console.log('https://dummyjson.com/products/categories', data);
     return data as CategoriesProducts;
   } catch (e) {
     console.log(e);

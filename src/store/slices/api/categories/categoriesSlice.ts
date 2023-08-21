@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCategories, CategoriesProducts } from './getCategories';
+import { getCategoriesAction, CategoriesProducts } from './getCategoriesAction';
 
 type ApiResponse = {
   status: 'loading' | 'success' | 'error' | null;
-  data: CategoriesProducts | null;
+  categories: CategoriesProducts | null;
   error: string | null;
 };
 const initialState: ApiResponse = {
   status: null,
-  data: null,
+  categories: null,
   error: null,
 };
 export const categoriesSlice = createSlice({
@@ -16,15 +16,14 @@ export const categoriesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getCategories.pending, (state) => {
+    builder.addCase(getCategoriesAction.pending, (state: ApiResponse) => {
       state.status = 'loading';
-      state.data = null;
     });
-    builder.addCase(getCategories.fulfilled, (state, action) => {
+    builder.addCase(getCategoriesAction.fulfilled, (state, action) => {
       state.status = 'success';
-      state.data = action.payload;
+      state.categories = action.payload;
     });
-    builder.addCase(getCategories.rejected, (state, action) => {
+    builder.addCase(getCategoriesAction.rejected, (state, action) => {
       state.status = 'error';
       state.error = action.payload as string;
     });

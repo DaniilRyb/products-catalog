@@ -1,39 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-export const Header = () => {
+export const Header: FC = () => {
   return (
-    <nav className='navbar navbar-expand-lg'>
+    <nav
+      className='navbar navbar-expand-lg'
+      style={{ backgroundColor: '#eceaea' }}
+    >
       <div className='container-fluid'>
-        <NavLink to='/' className='nav-link text-uppercase'>
-          Shop products
-        </NavLink>
-
+        <Link to='/' className='nav-link text-uppercase fw-bold'>
+          <h5 className='p-1 m-0'>shop products</h5>
+        </Link>
         <div className='collapse navbar-collapse' id='navbarScroll'>
-          <ul className='navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll'>
-            <li className='nav-item'>
-              <NavLink to='/' className='nav-link'>
-                Главная
-              </NavLink>
-            </li>
-            <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                О нас
-              </a>
-            </li>
-            <li className='nav-item'>
-              <a className='nav-link'>Контакты</a>
-            </li>
-          </ul>
+          <ul className='navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll'></ul>
           <form className='d-flex' role='search'>
             <input
               className='form-control me-2'
               type='search'
-              placeholder='Search'
-              aria-label='Search'
+              placeholder='Поиск'
             />
             <button className='btn btn-outline-success' type='submit'>
-              Search
+              Поиск
             </button>
           </form>
         </div>

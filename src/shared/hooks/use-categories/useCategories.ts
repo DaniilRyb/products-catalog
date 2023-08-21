@@ -1,15 +1,20 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../store/typeHooks';
-import { getCategories } from '../../../store/slices/api/categories/getCategories';
+import { getCategoriesAction } from '../../../store/slices/api/categories/getCategoriesAction';
 
 export const useCategories = () => {
   const dispatch = useAppDispatch();
+
   useEffect(() => {
-    dispatch(getCategories());
+    console.log('useEffect useCategories work!');
+    dispatch(getCategoriesAction());
   }, []);
-  const { data, status, error } = useAppSelector((state) => state.categories);
+
+  const { categories, status, error } = useAppSelector(
+    (state) => state.categories,
+  );
   return {
-    data,
+    categories,
     status,
     error,
   };

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getProducts } from './getProducts';
+import { getProductsAction } from './getProductsAction';
 import { ICategory } from '../../../../entities/interfaces/ICategory';
 
 type ApiResponse = {
@@ -7,6 +7,7 @@ type ApiResponse = {
   data: ICategory | null;
   error: string | null;
 };
+
 const initialState: ApiResponse = {
   status: null,
   data: null,
@@ -17,15 +18,20 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getProducts.pending, (state) => {
+    builder.addCase(getProductsAction.pending, (state: ApiResponse) => {
       state.status = 'loading';
+      state.error = null;
       state.data = null;
     });
-    builder.addCase(getProducts.fulfilled, (state, action: PayloadAction<ICategory>) => {
-      state.status = 'success';
-      state.data = action.payload;
-    });
-    builder.addCase(getProducts.rejected, (state, action) => {
+    builder.addCase(
+      getProductsAction.fulfilled,
+      (state, action: PayloadAction<ICategory>) => {
+        state.status = 'success';
+        state.error = null;
+        state.data = action.payload;
+      },
+    );
+    builder.addCase(getProductsAction.rejected, (state, action) => {
       state.status = 'error';
       state.error = action.payload as string;
     });

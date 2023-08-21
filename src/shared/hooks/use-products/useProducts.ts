@@ -1,15 +1,17 @@
 import { useAppDispatch, useAppSelector } from '../../../store/typeHooks';
 import { useEffect } from 'react';
-import { getProducts } from '../../../store/slices/api/products/getProducts';
+import { getProductsAction } from '../../../store/slices/api/products/getProductsAction';
 
 export const useProducts = (productName: string | undefined) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (productName) dispatch(getProducts(productName));
+    if (productName) dispatch(getProductsAction(productName));
+    console.log('useEffect status useProducts', status);
   }, []);
 
   const { data, error, status } = useAppSelector((state) => state.products);
+  console.log('data useProducts', data);
   return {
     data,
     error,
