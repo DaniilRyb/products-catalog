@@ -11,6 +11,7 @@ export const getCategories = createAsyncThunk<
     const { data } = await axios.get<CategoriesProducts>(
       'https://dummyjson.com/products/categories',
     );
+    console.log("https://dummyjson.com/products/categories", data);
     return data as CategoriesProducts;
   } catch (e) {
     console.log(e);
