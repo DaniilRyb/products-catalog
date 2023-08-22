@@ -21,20 +21,22 @@ export const productsSlice = createSlice({
     builder.addCase(getProductsAction.pending, (state: ApiResponse) => {
       state.status = 'loading';
       state.error = null;
-      state.data = null;
     });
     builder.addCase(
       getProductsAction.fulfilled,
-      (state, action: PayloadAction<ICategory>) => {
+      (state: ApiResponse, action: PayloadAction<ICategory>) => {
         state.status = 'success';
         state.error = null;
         state.data = action.payload;
       },
     );
-    builder.addCase(getProductsAction.rejected, (state, action) => {
-      state.status = 'error';
-      state.error = action.payload as string;
-    });
+    builder.addCase(
+      getProductsAction.rejected,
+      (state: ApiResponse, action) => {
+        state.status = 'error';
+        state.error = action.payload as string;
+      },
+    );
   },
 });
 

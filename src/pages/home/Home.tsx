@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { CardCategory } from '../../shared/ui/card-category/CardCategory';
 import { useCategories } from '../../shared/hooks/use-categories/useCategories';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
@@ -8,10 +8,9 @@ import { Categories } from '../../styles/categories/Categories';
 
 export const Home: FC = () => {
   const { categories, status } = useCategories();
-  const colors: string[] = generateColors(
-    categories?.length ? categories.length : 100,
-  );
-  console.log('categories Home page', categories);
+  const colors: string[] = useMemo(() => {
+    return generateColors(categories?.length ? categories.length : 16);
+  }, [categories?.length]);
   return (
     <div>
       <div>
@@ -23,9 +22,10 @@ export const Home: FC = () => {
         )}
         {status === 'success' && (
           <FlexCardCategory>
-            {categories?.map((category, index) => (
-              <CardCategory category={category} color={colors[index]} />
-            ))}
+            {categories?.length &&
+              categories.map((category, index) => (
+                <CardCategory category={category} color={colors[index]} />
+              ))}
           </FlexCardCategory>
         )}
       </div>

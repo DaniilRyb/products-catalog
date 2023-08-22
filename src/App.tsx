@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/home/Home';
 import { NotFound } from './pages/not-found/NotFound';
 import { Category } from './pages/category/Category';
+import { Product } from './pages/product/Product';
 import './app/index.css';
 
 export const App: FC = () => {
@@ -11,9 +12,10 @@ export const App: FC = () => {
     <Router>
       <Header />
       <Routes>
-        <Route element={<Home />} path='/' />
-        <Route element={<Category />} path='/category/:category' />
-        <Route element={<NotFound />} path='*' />
+        <Route path='/' element={<Home />} />
+        <Route path='/category/:category' element={<Category />} />
+        <Route path='/category/:category/:id' element={<Product />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
   );

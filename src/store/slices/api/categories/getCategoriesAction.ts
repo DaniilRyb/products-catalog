@@ -6,12 +6,11 @@ export const getCategoriesAction = createAsyncThunk<
   CategoriesProducts,
   void,
   { rejectValue: string }
->('apiData', async (_, { rejectWithValue }) => {
+>('api/categories', async (_, { rejectWithValue }) => {
   try {
     const { data } = await axios.get<CategoriesProducts>(
       'https://dummyjson.com/products/categories',
     );
-    console.log('https://dummyjson.com/products/categories', data);
     return data as CategoriesProducts;
   } catch (e) {
     console.log(e);

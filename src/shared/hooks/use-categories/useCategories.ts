@@ -4,9 +4,7 @@ import { getCategoriesAction } from '../../../store/slices/api/categories/getCat
 
 export const useCategories = () => {
   const dispatch = useAppDispatch();
-
   useEffect(() => {
-    console.log('useEffect useCategories work!');
     dispatch(getCategoriesAction());
   }, []);
 

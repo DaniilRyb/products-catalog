@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './app/index.css';
 import { App } from './App';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import './app/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

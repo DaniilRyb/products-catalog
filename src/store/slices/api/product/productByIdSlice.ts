@@ -1,35 +1,38 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getCategoriesAction, CategoriesProducts } from './getCategoriesAction';
+import { IProduct } from '../../../../entities/interfaces/IProduct';
+import { getProductByIdAction } from './getProductByIdAction';
 
 type ApiResponse = {
   status: 'loading' | 'success' | 'error' | null;
-  categories: CategoriesProducts | null;
+  data: IProduct | null;
   error: string | null;
 };
+
 const initialState: ApiResponse = {
   status: null,
-  categories: null,
+  data: null,
   error: null,
 };
-export const categoriesSlice = createSlice({
-  name: 'categories',
+
+export const productByIdSlice = createSlice({
+  name: 'products',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getCategoriesAction.pending, (state: ApiResponse) => {
+    builder.addCase(getProductByIdAction.pending, (state: ApiResponse) => {
       state.status = 'loading';
       state.error = null;
     });
     builder.addCase(
-      getCategoriesAction.fulfilled,
-      (state: ApiResponse, action: PayloadAction<CategoriesProducts>) => {
+      getProductByIdAction.fulfilled,
+      (state: ApiResponse, action: PayloadAction<IProduct>) => {
         state.status = 'success';
         state.error = null;
-        state.categories = action.payload;
+        state.data = action.payload;
       },
     );
     builder.addCase(
-      getCategoriesAction.rejected,
+      getProductByIdAction.rejected,
       (state: ApiResponse, action) => {
         state.status = 'error';
         state.error = action.payload as string;
@@ -38,4 +41,4 @@ export const categoriesSlice = createSlice({
   },
 });
 
-export const categories = categoriesSlice.reducer;
+export const productById = productByIdSlice.reducer;

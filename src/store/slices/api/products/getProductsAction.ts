@@ -6,7 +6,7 @@ export const getProductsAction = createAsyncThunk<
   ICategory,
   string,
   { rejectValue: string }
->('apiData', async (nameCategory: string, { rejectWithValue }) => {
+>('api/products', async (nameCategory: string, { rejectWithValue }) => {
   try {
     const { data } = await axios.get<ICategory>(
       `https://dummyjson.com/products/category/${nameCategory}`,
