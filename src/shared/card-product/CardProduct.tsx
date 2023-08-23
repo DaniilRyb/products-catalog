@@ -10,8 +10,7 @@ const CardProductStyles = styled.div`
   border-radius: 10px;
   border: 1px solid #ccc;
   margin: 40px;
-  text-decoration: none;
-  text-transform: none;
+  color: #000;
 
   &:hover {
     opacity: 0.75;
@@ -36,7 +35,10 @@ export const CardProduct: FC<CardProductProps> = ({ product, category }) => {
 
   return (
     <CardProductStyles>
-      <Link to={`/category/${category}/${id}`}>
+      <Link
+        to={`/category/${category}/${id}`}
+        style={{ textDecoration: 'none' }}
+      >
         <div>
           <img
             src={product.thumbnail}

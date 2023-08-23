@@ -6,6 +6,7 @@ import { useProducts } from '../../shared/hooks/use-products/useProducts';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
 import styled from 'styled-components';
 import { FlexCardCategory } from '../../styles/flex-card-category/FlexCardCategory';
+import { Error } from '../../shared/error/Error';
 
 export const CategoryTitle = styled.div`
   margin: 0 0 0.5rem 0;
@@ -18,7 +19,13 @@ export const Category: FC = () => {
   const { data, status, error } = useProducts(category);
   return (
     <div>
-      {status === 'error' && <div>{error}</div>}
+      {status === 'error' && (
+        <Error
+          message={error?.message as string}
+          code={error?.code as number}
+          messageAxios={error?.messageAxios as string}
+        />
+      )}
       {status === 'loading' && (
         <FlexCardCategory>
           <Skeleton />

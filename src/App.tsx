@@ -15,6 +15,8 @@ export const App: FC = () => {
         <Route path='/' element={<Home />} />
         <Route path='/category/:category' element={<Category />} />
         <Route path='/category/:category/:id' element={<Product />} />
+        <Route path='/category/:category/*' element={<NotFound />} />
+        <Route path='/category/*' element={<NotFound />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
