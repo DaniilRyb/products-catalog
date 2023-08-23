@@ -3,40 +3,27 @@ import { useParams } from 'react-router-dom';
 import styles from '../../shared/card-product/CardProduct.module.css';
 import { useProductById } from '../../shared/hooks/use-product-by-id/useProductById';
 import { CarouselComponent } from '../../shared/ui/carousel/Carousel';
-import styled from 'styled-components';
-
-const ProductFlex = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  height: 100vh;
-`;
-
-const ProductStyles = styled.div`
-  width: 400px;
-  height: 400px;
-
-  img {
-    width: 400px;
-    height: 400px;
-    border-radius: 10px;
-  }
-`;
-
-const DescriptionStyles = styled.div`
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: bold;
-`;
+import { Error } from '../../shared/error/Error';
+import {
+  DescriptionStyles,
+  Price,
+  ProductFlex,
+  ProductStyles,
+} from '../../styles/product/Product';
+import { SkeletonProduct } from '../../shared/ui/skeleton-product/SkeletonProduct';
 
 export const Product: FC = () => {
   const { id } = useParams();
-  const { data: product } = useProductById(id);
+  const { data: product, status } = useProductById(id);
   return (
     <>
-      {product && (
+      {status === 'error' && (
+        <Error code={401} message={'error'} messageAxios={'error get data'} />
+      )}
+      {status === 'loading' && <ProductFlex>
+        <SkeletonProduct />
+      </ProductFlex>}
+      {status === 'success' && product && (
         <div>
           <ProductFlex>
             <ProductStyles>
@@ -53,20 +40,7 @@ export const Product: FC = () => {
               </DescriptionStyles>
               <DescriptionStyles>
                 <p className={styles.margin_padding0}>
-                  PRICE: {product.price}$
-                </p>
-              </DescriptionStyles>
-              <DescriptionStyles>
-                <p className={styles.margin_padding0}>BRAND: {product.brand}</p>
-              </DescriptionStyles>
-              <DescriptionStyles>
-                <p className={styles.margin_padding0}>
-                  DESCRIPTION: {product.description}
-                </p>
-              </DescriptionStyles>
-              <DescriptionStyles>
-                <p className={styles.margin_padding0}>
-                  DISCOUNT PERCENTAGE: {product.discountPercentage}
+                  PRICE: <Price>{product.price}$</Price>
                 </p>
               </DescriptionStyles>
               <DescriptionStyles>
@@ -76,6 +50,19 @@ export const Product: FC = () => {
               </DescriptionStyles>
               <DescriptionStyles>
                 <p className={styles.margin_padding0}>STOCK: {product.stock}</p>
+              </DescriptionStyles>
+              <DescriptionStyles>
+                <p className={styles.margin_padding0}>BRAND: {product.brand}</p>
+              </DescriptionStyles>
+              <DescriptionStyles>
+                <p className={styles.margin_padding0}>
+                  DISCOUNT PERCENTAGE: {product.discountPercentage}
+                </p>
+              </DescriptionStyles>
+              <DescriptionStyles>
+                <p className={styles.margin_padding0}>
+                  DESCRIPTION: {product.description}
+                </p>
               </DescriptionStyles>
             </ProductStyles>
           </ProductFlex>

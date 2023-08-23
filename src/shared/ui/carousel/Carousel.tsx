@@ -6,7 +6,7 @@ type CarouselComponentProps = {
 };
 export const CarouselComponent: FC<CarouselComponentProps> = ({ images }) => {
   return (
-    <Carousel dotPosition='left'>
+    <Carousel dotPosition='left' autoplay={true}>
       {images.map((image) => (
         <div>
           <img src={image} alt='image carousel' />

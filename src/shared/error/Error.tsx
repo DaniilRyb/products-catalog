@@ -20,6 +20,7 @@ type ErrorProps = {
   message: string;
   messageAxios: string;
 };
+
 export const Error: FC<ErrorProps> = ({ code, message, messageAxios }) => {
   return (
     <ErrorFlex>

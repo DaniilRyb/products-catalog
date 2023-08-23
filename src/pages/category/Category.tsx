@@ -4,9 +4,9 @@ import { CardProduct } from '../../shared/card-product/CardProduct';
 import { IProduct } from '../../entities/interfaces/IProduct';
 import { useProducts } from '../../shared/hooks/use-products/useProducts';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
-import styled from 'styled-components';
 import { FlexCardCategory } from '../../styles/flex-card-category/FlexCardCategory';
 import { Error } from '../../shared/error/Error';
+import styled from 'styled-components';
 
 export const CategoryTitle = styled.div`
   margin: 0 0 0.5rem 0;
