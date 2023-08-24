@@ -6,13 +6,6 @@ import { useProducts } from '../../shared/hooks/use-products/useProducts';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
 import { FlexCardCategory } from '../../styles/flex-card-category/FlexCardCategory';
 import { Error } from '../../shared/error/Error';
-import styled from 'styled-components';
-
-export const CategoryTitle = styled.div`
-  margin: 0 0 0.5rem 0;
-  font-weight: 500;
-  line-height: 1.2;
-`;
 
 export const Category: FC = () => {
   const { category } = useParams();
@@ -34,7 +27,6 @@ export const Category: FC = () => {
       {status === 'success' && (
         <div>
           <FlexCardCategory>
-            <CategoryTitle>{category}</CategoryTitle>
             {data?.products &&
               data.products.map((product: IProduct, index: number) => (
                 <CardProduct
