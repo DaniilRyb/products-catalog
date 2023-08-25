@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { IProduct } from '../../../../entities/interfaces/IProduct';
+import { IProduct } from '../../model/IProduct';
 
 export const getProductByIdAction = createAsyncThunk<
   IProduct,

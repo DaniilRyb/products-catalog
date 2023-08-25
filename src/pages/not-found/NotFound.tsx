@@ -1,9 +1,15 @@
 import React from 'react';
 import error from '../../assets/error.png';
+import styled from 'styled-components';
 
+const StyledNotFound = styled.div`
+  position: relative;
+  text-align: center;
+  padding: 3rem;
+`;
 export const NotFound = () => {
   return (
-    <div className='text-center position-relative p-5'>
+    <StyledNotFound>
       <div>
         <h3>Ошибка 404. Страница не найдена :(</h3>
       </div>
@@ -11,6 +17,6 @@ export const NotFound = () => {
         <p>Error 404. Page not found</p>
       </div>
       <img src={error} alt='error' width='400px' className='p-1' />
-    </div>
+    </StyledNotFound>
   );
 };

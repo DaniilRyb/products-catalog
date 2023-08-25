@@ -7,7 +7,6 @@ const HoverCardCategory = styled.div<{ bg: string }>`
   height: 300px;
   border: 1px solid #ccc;
   color: #fff;
-  margin: 20px;
   padding: 20px;
   border-radius: 10px;
   text-transform: uppercase;
@@ -33,7 +32,7 @@ type CardCategoryProps = {
 
 export const CardCategory: FC<CardCategoryProps> = ({ category, color }) => {
   return (
-    <Link to={`/category/${category}`} style={{ textDecoration: 'none' }}>
+    <Link to={`/${category}`} style={{ textDecoration: 'none' }}>
       <HoverCardCategory bg={color}>{category}</HoverCardCategory>
     </Link>
   );

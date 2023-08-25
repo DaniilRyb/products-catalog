@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IProduct } from '../../../../entities/interfaces/IProduct';
+import { IProduct } from '../../model/IProduct';
 import { getProductByIdAction } from './getProductByIdAction';
 
 type ApiResponse = {

@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-export const ProductFlex = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  height: 100vh;
-`;
-
 export const ProductStyles = styled.div`
   width: 400px;
   height: 400px;

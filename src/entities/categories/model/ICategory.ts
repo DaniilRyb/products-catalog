@@ -1,4 +1,4 @@
-import { IProduct } from './IProduct';
+import { IProduct } from '../../product/model/IProduct';
 
 export interface ICategory {
   products: IProduct[];

@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { CardProduct } from '../../shared/card-product/CardProduct';
-import { IProduct } from '../../entities/interfaces/IProduct';
+import { IProduct } from '../../entities/product/model/IProduct';
 import { useProducts } from '../../shared/hooks/use-products/useProducts';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
-import { FlexCardCategory } from '../../styles/flex-card-category/FlexCardCategory';
+import { StylesFlexCardCategory } from '../../styles/styles-flex-card-category/stylesFlexCardCategory';
 import { Error } from '../../shared/error/Error';
 
 export const Category: FC = () => {
@@ -20,13 +20,13 @@ export const Category: FC = () => {
         />
       )}
       {status === 'loading' && (
-        <FlexCardCategory>
+        <StylesFlexCardCategory>
           <Skeleton />
-        </FlexCardCategory>
+        </StylesFlexCardCategory>
       )}
       {status === 'success' && (
         <div>
-          <FlexCardCategory>
+          <StylesFlexCardCategory>
             {data?.products &&
               data.products.map((product: IProduct, index: number) => (
                 <CardProduct
@@ -35,7 +35,7 @@ export const Category: FC = () => {
                   key={index}
                 />
               ))}
-          </FlexCardCategory>
+          </StylesFlexCardCategory>
         </div>
       )}
     </div>

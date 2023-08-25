@@ -1,36 +1,31 @@
 import React, { FC, useMemo } from 'react';
-import { CardCategory } from '../../shared/ui/card-category/CardCategory';
+import { CardCategory } from '../../entities/categories/ui/card-category/CardCategory';
 import { useCategories } from '../../shared/hooks/use-categories/useCategories';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
 import { generateColors } from '../../shared/helpers/generateColor';
-import { FlexCardCategory } from '../../styles/flex-card-category/FlexCardCategory';
-import { Categories, CategoriesDiv } from '../../styles/categories/Categories';
+import { StylesFlexCardCategory } from '../../styles/styles-flex-card-category/stylesFlexCardCategory';
 
 export const Home: FC = () => {
   const { categories, status } = useCategories();
   const colors: string[] = useMemo(() => {
     return generateColors(categories?.length ? categories.length : 16);
   }, [categories?.length]);
-
   return (
     <div>
       <div>
         {status === 'loading' && (
-          <FlexCardCategory>
+          <StylesFlexCardCategory>
             <Skeleton />
-          </FlexCardCategory>
+          </StylesFlexCardCategory>
         )}
         {status === 'success' && (
           <>
-            <CategoriesDiv>
-              <Categories>Категории</Categories>
-            </CategoriesDiv>
-            <FlexCardCategory>
+            <StylesFlexCardCategory>
               {categories?.length &&
                 categories.map((category, index) => (
                   <CardCategory category={category} color={colors[index]} />
                 ))}
-            </FlexCardCategory>
+            </StylesFlexCardCategory>
           </>
         )}
       </div>

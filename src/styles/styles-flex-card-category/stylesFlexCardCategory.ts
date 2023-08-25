@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-export const FlexCardCategory = styled.div`
+export const StylesFlexCardCategory = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 100vh;
 `;
