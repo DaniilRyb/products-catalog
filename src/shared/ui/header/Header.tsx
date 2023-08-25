@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { InputDebounce } from '../../../features/user-search-products/ui/input-debounce/InputDebounce';
 
 export const Header: FC = () => {
   return (
@@ -12,14 +13,10 @@ export const Header: FC = () => {
           <h5 className='p-1 m-0'>shop products</h5>
         </Link>
         <form className='d-flex' role='search'>
-          <input
-            className='form-control me-2'
-            type='search'
-            placeholder='Поиск'
-          />
-          <button className='btn btn-outline-success' type='submit'>
-            Поиск
-          </button>
+          <InputDebounce />
+          {/*<button className='btn btn-outline-success' type='submit'>*/}
+          {/*  Поиск*/}
+          {/*</button>*/}
         </form>
       </div>
     </nav>

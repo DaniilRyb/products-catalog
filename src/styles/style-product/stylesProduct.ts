@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProductStyles = styled.div`
+export const StyledProduct = styled.div`
   width: 400px;
   height: 400px;
 
@@ -11,7 +11,7 @@ export const ProductStyles = styled.div`
   }
 `;
 
-export const DescriptionStyles = styled.div`
+export const StyledDescription = styled.div`
   margin: 0;
   text-transform: uppercase;
   font-weight: bold;

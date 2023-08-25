@@ -39,7 +39,7 @@ const breadcrumbNameMap: { [key: string]: string } = {
   '/lighting': 'Lighting',
 };
 
-const StylesBreadCrumbs = styled.div`
+const StyledBreadcrumbs = styled.div`
   padding-top: 2rem;
   padding-bottom: 2rem;
 `;
@@ -47,12 +47,11 @@ const StylesBreadCrumbs = styled.div`
 export const BreadCrumbs = () => {
   const { pathname } = useLocation();
   const path = pathname.split('/').filter((x) => x);
-  console.log(path);
   const idProduct = pathname.replace(/[^0-9]/g, '');
   const { data: productData } = useProductById(idProduct);
 
   return (
-    <StylesBreadCrumbs>
+    <StyledBreadcrumbs>
       <Breadcrumbs aria-label='breadcrumb'>
         <LinkRouter underline='hover' color='inherit' to='/'>
           <HomeIcon />
@@ -73,6 +72,6 @@ export const BreadCrumbs = () => {
           );
         })}
       </Breadcrumbs>
-    </StylesBreadCrumbs>
+    </StyledBreadcrumbs>
   );
 };

@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-const ErrorFlex = styled.div`
+const StyledErrorFlex = styled.div`
   display: flex;
   justify-content: center;
   margin: 3rem;
 `;
 
-const ErrorStyle = styled.div`
+const StyledErrorStyle = styled.div`
   width: 700px;
   height: 75px;
   background-color: #eaa1a1;
@@ -23,13 +23,13 @@ type ErrorProps = {
 
 export const Error: FC<ErrorProps> = ({ code, message, messageAxios }) => {
   return (
-    <ErrorFlex>
-      <ErrorStyle>
+    <StyledErrorFlex>
+      <StyledErrorStyle>
         <h1>
           {code} {message}
         </h1>
         <p>{messageAxios}</p>
-      </ErrorStyle>
-    </ErrorFlex>
+      </StyledErrorStyle>
+    </StyledErrorFlex>
   );
 };

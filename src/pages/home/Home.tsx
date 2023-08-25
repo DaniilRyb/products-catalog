@@ -3,7 +3,7 @@ import { CardCategory } from '../../entities/categories/ui/card-category/CardCat
 import { useCategories } from '../../shared/hooks/use-categories/useCategories';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
 import { generateColors } from '../../shared/helpers/generateColor';
-import { StylesFlexCardCategory } from '../../styles/styles-flex-card-category/stylesFlexCardCategory';
+import { StyledFlexCardCategory } from '../../styles/styles-flex-card-category/styledFlexCardCategory';
 
 export const Home: FC = () => {
   const { categories, status } = useCategories();
@@ -14,18 +14,18 @@ export const Home: FC = () => {
     <div>
       <div>
         {status === 'loading' && (
-          <StylesFlexCardCategory>
+          <StyledFlexCardCategory>
             <Skeleton />
-          </StylesFlexCardCategory>
+          </StyledFlexCardCategory>
         )}
         {status === 'success' && (
           <>
-            <StylesFlexCardCategory>
+            <StyledFlexCardCategory>
               {categories?.length &&
                 categories.map((category, index) => (
                   <CardCategory category={category} color={colors[index]} />
                 ))}
-            </StylesFlexCardCategory>
+            </StyledFlexCardCategory>
           </>
         )}
       </div>

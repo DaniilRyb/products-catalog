@@ -4,7 +4,7 @@ import { CardProduct } from '../../shared/card-product/CardProduct';
 import { IProduct } from '../../entities/product/model/IProduct';
 import { useProducts } from '../../shared/hooks/use-products/useProducts';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
-import { StylesFlexCardCategory } from '../../styles/styles-flex-card-category/stylesFlexCardCategory';
+import { StyledFlexCardCategory } from '../../styles/styles-flex-card-category/styledFlexCardCategory';
 import { Error } from '../../shared/error/Error';
 
 export const Category: FC = () => {
@@ -20,13 +20,13 @@ export const Category: FC = () => {
         />
       )}
       {status === 'loading' && (
-        <StylesFlexCardCategory>
+        <StyledFlexCardCategory>
           <Skeleton />
-        </StylesFlexCardCategory>
+        </StyledFlexCardCategory>
       )}
       {status === 'success' && (
         <div>
-          <StylesFlexCardCategory>
+          <StyledFlexCardCategory>
             {data?.products &&
               data.products.map((product: IProduct, index: number) => (
                 <CardProduct
@@ -35,7 +35,7 @@ export const Category: FC = () => {
                   key={index}
                 />
               ))}
-          </StylesFlexCardCategory>
+          </StyledFlexCardCategory>
         </div>
       )}
     </div>
