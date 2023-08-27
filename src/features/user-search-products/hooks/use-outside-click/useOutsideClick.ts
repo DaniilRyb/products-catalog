@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 
-export const useOutsideClick = (initialValue) => {
-  const [isActive, setIsActive] = useState(initialValue);
-  const ref = useRef<HTMLDivElement>(null);
+export const useOutsideClick = () => {
+  const [isActive, setIsActive] = useState(false);
+  const refDiv = useRef<HTMLDivElement | null>(null);
+  const refInput = useRef<HTMLInputElement | null>(null);
 
   const handleClick = (e) => {
-    if (ref.current && !ref.current.contains(e.target)) {
-      setIsActive(!isActive);
+    if (refInput.current?.contains(e.target)) {
+      setIsActive(true);
+    } else if (!refInput.current?.contains(e.target)) {
+      setIsActive(false);
     }
   };
 
@@ -17,5 +20,5 @@ export const useOutsideClick = (initialValue) => {
     };
   });
 
-  return { ref, isActive, setIsActive };
+  return { refDiv, refInput, isActive };
 };

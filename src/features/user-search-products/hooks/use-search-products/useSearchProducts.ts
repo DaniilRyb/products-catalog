@@ -1,10 +1,17 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/typeHooks';
 import { searchProductsAction } from '../../api/searchProductsAction';
+import { debounce } from '../../debounce/Debounce';
 export const useSearchProducts = (inputValue: string) => {
   const dispatch = useAppDispatch();
+
+  const debounceInputSearchProducts = useCallback(
+    debounce((userInput) => dispatch(searchProductsAction(userInput)), 1000),
+    [],
+  );
+
   useEffect(() => {
-    dispatch(searchProductsAction(inputValue));
+    debounceInputSearchProducts(inputValue);
   }, [inputValue]);
 
   const { productsList, status, error } = useAppSelector(
