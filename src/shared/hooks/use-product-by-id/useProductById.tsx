@@ -5,7 +5,7 @@ export const useProductById = (id: string | undefined) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     if (id) dispatch(getProductByIdAction(id));
-  }, []);
+  }, [id]);
 
   const { data, status, error } = useAppSelector((state) => state.productById);
 

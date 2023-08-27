@@ -54,7 +54,7 @@ export const BreadCrumbs = () => {
     <StyledBreadcrumbs>
       <Breadcrumbs aria-label='breadcrumb'>
         <LinkRouter underline='hover' color='inherit' to='/'>
-          <HomeIcon />
+          <HomeIcon fontSize={'medium'} />
         </LinkRouter>
         {path.map((value, index) => {
           const last = index === path.length - 1;
