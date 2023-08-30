@@ -29,10 +29,15 @@ const PageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1rem;
 `;
 
 const Page = factory(styled.div<{ isActive?: boolean }>`
-  padding: 0.2rem;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  background-color: #ccc;
+  border-radius: 3px;
+  font-size: 1.25rem;
   font-weight: ${({ isActive }) => isActive && 'bold'};
 `);
 

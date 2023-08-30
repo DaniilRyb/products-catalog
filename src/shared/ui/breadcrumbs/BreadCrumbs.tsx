@@ -37,6 +37,7 @@ const breadcrumbNameMap: { [key: string]: string } = {
   '/automotive': 'Automotive',
   '/motorcycle': 'Motorcycle',
   '/lighting': 'Lighting',
+  '/all': 'All',
 };
 
 const StyledBreadcrumbs = styled.div`

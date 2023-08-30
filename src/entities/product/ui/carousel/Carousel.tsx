@@ -9,7 +9,7 @@ export const CarouselComponent: FC<CarouselComponentProps> = ({ images }) => {
     <Carousel dotPosition='left' autoplay={true}>
       {images.map((image) => (
         <div>
-          <img src={image} alt='image carousel' />
+          <img src={image} alt={`image ${image}`} />
         </div>
       ))}
     </Carousel>

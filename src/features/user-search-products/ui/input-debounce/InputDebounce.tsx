@@ -37,6 +37,16 @@ const StyledAutocomplete = styled.div`
   }
 `;
 
+const StyledLoadingBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0.25rem;
+
+  div > li {
+    padding: 1rem;
+  }
+`;
+
 export const InputDebounce: FC = () => {
   const [input, setInput] = useState<string>('');
   const { productsList, status, error } = useSearchProducts(input);
@@ -69,12 +79,17 @@ export const InputDebounce: FC = () => {
         {isActive && (
           <StyledAutocomplete ref={refDiv}>
             {status === 'loading' && (
-              <div className='d-flex flex-wrap'>
+              <StyledLoadingBar>
                 <div>
-                  <p>Loading...</p>
+                  <li>LOADING...</li>
                 </div>
-                <Spinner />
-              </div>
+                <div>
+                  <li>
+                    {' '}
+                    <Spinner />
+                  </li>
+                </div>
+              </StyledLoadingBar>
             )}
             {status === 'success' && (
               <>
@@ -91,7 +106,7 @@ export const InputDebounce: FC = () => {
                     ))}
                   </ul>
                 ) : (
-                  <ItemAutocomplete productItem={'No results'} />
+                  <ItemAutocomplete productItem='No results' />
                 )}
               </>
             )}
