@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7b12664c-0056-477b-b1a6-b1c177a42fd2/deploy-status)](https://app.netlify.com/sites/catalog-products/deploys)
+## Deploy https://catalog-products.netlify.app/
+
 # Тестовое задание для стажёра Frontend
 
 Разработать адаптивный интерфейс каталога товаров, состоящий из трех страниц.
