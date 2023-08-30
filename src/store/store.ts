@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { products } from './slices/api/products/productsSlice';
+import { products } from '../entities/category-products/api/productsSlice';
 import { categories } from '../entities/categories/api/categories/categoriesSlice';
 import { productById } from '../entities/product/api/product/productByIdSlice';
 import { searchProducts } from '../features/user-search-products/api/productsSearchSlice';
+import { productsPagination } from '../features/pagination/api/productsPaginationSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     productById: productById,
     categories: categories,
     productsByTitle: searchProducts,
+    productsPagination: productsPagination,
   },
 });
 

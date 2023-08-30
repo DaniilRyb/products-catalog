@@ -1,29 +1,32 @@
 import React, { ChangeEvent, FC, useState } from 'react';
-import { debounce } from '../../debounce/Debounce';
-import { useSearchProducts } from '../../hooks/use-search-products/useSearchProducts';
+import { useSearchProducts } from '../../../../shared/hooks/use-search-products/useSearchProducts';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useOutsideClick } from '../../hooks/use-outside-click/useOutsideClick';
+import { useOutsideClick } from '../../../../shared/hooks/use-outside-click/useOutsideClick';
 import { Spinner } from 'react-bootstrap';
 import { ItemAutocomplete } from '../item-autocomplete/ItemAutocomplete';
 
 const StyledAutocomplete = styled.div`
   position: absolute;
+  right: 0;
+  top: 54px;
   width: 350px;
   height: 450px;
-  background-color: #ece6e6;
+  box-shadow: 1px 1px 3px 3px #ccc;
   border: 1px solid #ccc;
   border-radius: 3px;
-  right: 0;
   overflow: auto;
-  top: 53px;
   z-index: 10;
+  background-color: #ece6e6;
   color: #000;
 
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+  li {
+    list-style: none;
   }
 
   a {
@@ -36,17 +39,8 @@ const StyledAutocomplete = styled.div`
 
 export const InputDebounce: FC = () => {
   const [input, setInput] = useState<string>('');
-  const [item, setItem] = useState<string>('');
-
-  const debounceInputSearchProducts = debounce(
-    (inputValue: string) => setItem(inputValue),
-    1000,
-  );
-
-  const { productsList, status, error } = useSearchProducts(item);
-
+  const { productsList, status, error } = useSearchProducts(input);
   const { refDiv, refInput, isActive } = useOutsideClick();
-
   const list = productsList?.products.map(({ title, id, category }) => {
     return {
       label: title,
@@ -62,13 +56,13 @@ export const InputDebounce: FC = () => {
         <form>
           <input
             className='form-control'
+            style={{ width: '300px' }}
             type='search'
             placeholder='Search products...'
             value={input}
             ref={refInput}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setInput(e.target.value);
-              debounceInputSearchProducts(e.target.value);
             }}
           />
         </form>

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { useProductById } from '../../shared/hooks/use-product-by-id/useProductById';
+import { useProductById } from '../../hooks/use-product-by-id/useProductById';
 
 interface LinkRouterProps extends LinkProps {
   to: string;

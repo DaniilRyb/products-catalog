@@ -8,7 +8,7 @@ export const searchProductsAction = createAsyncThunk<
   { rejectValue: string }
 >('api/searchProducts', async (inputValue, { rejectWithValue }) => {
   const url: string = inputValue
-    ? `https://dummyjson.com/products/search?q=${inputValue}`
+    ? `https://dummyjson.com/products/search?q=${inputValue}&limit=0`
     : `https://dummyjson.com/products/search`;
   try {
     const { data } = await axios.get<ICategory>(url);

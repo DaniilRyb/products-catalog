@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
 import styles from './CardProduct.module.css';
-import { IProduct } from '../../entities/product/model/IProduct';
+import { IProduct } from '../../product/model/IProduct';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const CardProductStyles = styled.div`
+const StyledCardProduct = styled.div`
   border-radius: 10px;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -23,11 +23,11 @@ const CardProductStyles = styled.div`
   }
 `;
 
-const CardProductRelativeStyles = styled.div`
+const StyledCardProductRelative = styled.div`
   position: relative;
 `;
 
-const CardProductStylesOnMouse = styled.div`
+const StyledCardProductOnMouse = styled.div`
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -48,16 +48,16 @@ export const CardProduct: FC<CardProductProps> = ({ product, category }) => {
   const [isShown, setIsShown] = useState<boolean>(false);
 
   return (
-    <CardProductStyles>
+    <StyledCardProduct>
       <Link to={`/${category}/${id}`}>
-        <CardProductRelativeStyles
+        <StyledCardProductRelative
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
         >
           <div>
             <img src={thumbnail} alt={brand} className={styles.imgStyles} />
             {isShown && (
-              <CardProductStylesOnMouse>
+              <StyledCardProductOnMouse>
                 <div className={styles.m0}>
                   <p className={styles.margin_padding0}>
                     <strong>{title}</strong>
@@ -66,11 +66,11 @@ export const CardProduct: FC<CardProductProps> = ({ product, category }) => {
                 <div className={styles.m0}>
                   <p className={styles.margin_padding0}>{price}$</p>
                 </div>
-              </CardProductStylesOnMouse>
+              </StyledCardProductOnMouse>
             )}
           </div>
-        </CardProductRelativeStyles>
+        </StyledCardProductRelative>
       </Link>
-    </CardProductStyles>
+    </StyledCardProduct>
   );
 };

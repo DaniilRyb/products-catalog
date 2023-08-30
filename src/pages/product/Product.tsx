@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import styles from '../../shared/card-product/CardProduct.module.css';
+import styles from '../../entities/category-products/card-product/CardProduct.module.css';
 import { useProductById } from '../../shared/hooks/use-product-by-id/useProductById';
 import { CarouselComponent } from '../../entities/product/ui/carousel/Carousel';
-import { Error } from '../../shared/error/Error';
 import {
   StyledDescription,
   Price,
@@ -14,12 +13,11 @@ import { StyledFlexCardCategory } from '../../styles/styles-flex-card-category/s
 
 export const Product: FC = () => {
   const { id } = useParams();
-  const { data: product, status } = useProductById(id);
+  const { data: product, status, error } = useProductById(id);
   return (
     <>
-      {status === 'error' && (
-        <Error code={401} message={'error'} messageAxios={'error get data'} />
-      )}
+      {status === 'error' && <div>{error}</div>}
+
       {status === 'loading' && (
         <StyledFlexCardCategory>
           <SkeletonProduct />
