@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ICategory } from '../../categories/model/ICategory';
 import axios from 'axios';
+
+import { ICategory } from '../../categories/model/ICategory';
 
 export class RequestError extends Error {
   code: number;

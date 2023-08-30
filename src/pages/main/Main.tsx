@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from 'react';
+
 import { CardCategory } from '../../entities/categories/ui/card-category/CardCategory';
 import { useCategories } from '../../shared/hooks/use-categories/useCategories';
 import { Skeleton } from '../../shared/ui/skeleton/Skeleton';
@@ -24,7 +25,11 @@ export const Main: FC = () => {
             <CardCategory category={'all'} color={'#AFC452'} />
             {categories?.length &&
               categories.map((category, index) => (
-                <CardCategory category={category} color={colors[index]} />
+                <CardCategory
+                  category={category}
+                  color={colors[index]}
+                  key={index}
+                />
               ))}
           </StyledFlexCardCategory>
         )}

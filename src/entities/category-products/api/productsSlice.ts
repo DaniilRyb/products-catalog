@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getProductsAction, RequestError } from './getProductsAction';
+
 import { ICategory } from '../../categories/model/ICategory';
+
+import { getProductsAction, RequestError } from './getProductsAction';
 
 type ApiResponse = {
   status: 'loading' | 'success' | 'error' | null;

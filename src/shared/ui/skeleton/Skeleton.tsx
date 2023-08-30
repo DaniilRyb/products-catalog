@@ -1,6 +1,8 @@
 import React from 'react';
-import styles from './Skeleton.module.css';
+
 import { StyledFlexCardCategory } from '../../../styles/styles-flex-card-category/styledFlexCardCategory';
+
+import styles from './Skeleton.module.css';
 
 export const Skeleton = () => {
   return (

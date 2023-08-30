@@ -1,6 +1,7 @@
 import React from 'react';
-import error from '../../assets/error.png';
 import styled from 'styled-components';
+
+import error from '../../assets/error.png';
 
 const StyledNotFound = styled.div`
   position: relative;

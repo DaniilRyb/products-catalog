@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+
 import { usePagination } from '../../../../shared/hooks/use-pagination/usePagination';
 import PaginationComponent from '../pagination/PaginationComponent';
 import { IProduct } from '../../../../entities/product/model/IProduct';

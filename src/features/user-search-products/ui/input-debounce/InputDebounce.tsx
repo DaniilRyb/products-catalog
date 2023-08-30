@@ -1,9 +1,10 @@
 import React, { ChangeEvent, FC, useState } from 'react';
-import { useSearchProducts } from '../../../../shared/hooks/use-search-products/useSearchProducts';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useOutsideClick } from '../../../../shared/hooks/use-outside-click/useOutsideClick';
 import { Spinner } from 'react-bootstrap';
+
+import { useOutsideClick } from '../../../../shared/hooks/use-outside-click/useOutsideClick';
+import { useSearchProducts } from '../../../../shared/hooks/use-search-products/useSearchProducts';
 import { ItemAutocomplete } from '../item-autocomplete/ItemAutocomplete';
 
 const StyledAutocomplete = styled.div`

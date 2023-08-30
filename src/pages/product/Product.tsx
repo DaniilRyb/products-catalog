@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
+
 import styles from '../../entities/category-products/card-product/CardProduct.module.css';
 import { useProductById } from '../../shared/hooks/use-product-by-id/useProductById';
 import { CarouselComponent } from '../../entities/product/ui/carousel/Carousel';

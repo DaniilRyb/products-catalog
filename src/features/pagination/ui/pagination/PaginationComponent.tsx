@@ -1,4 +1,6 @@
 import React, { Dispatch, FC, Fragment } from 'react';
+import Select from 'react-select';
+
 import {
   AllLeft,
   AllRight,
@@ -9,7 +11,6 @@ import {
   PageInfo,
   Right,
 } from './styles';
-import Select from 'react-select';
 
 interface PProps {
   limit: number;

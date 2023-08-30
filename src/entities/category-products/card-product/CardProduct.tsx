@@ -1,8 +1,10 @@
 import React, { FC, useState } from 'react';
-import styles from './CardProduct.module.css';
-import { IProduct } from '../../product/model/IProduct';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { IProduct } from '../../product/model/IProduct';
+
+import styles from './CardProduct.module.css';
 
 const StyledCardProduct = styled.div`
   border-radius: 10px;

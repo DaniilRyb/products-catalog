@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { useProductById } from '../../hooks/use-product-by-id/useProductById';
 
 interface LinkRouterProps extends LinkProps {
@@ -13,7 +14,7 @@ interface LinkRouterProps extends LinkProps {
 }
 
 const LinkRouter = (props: LinkRouterProps) => {
-  return <Link {...props} component={RouterLink as any} />;
+  return <Link {...props} component={RouterLink} />;
 };
 
 const breadcrumbNameMap: { [key: string]: string } = {

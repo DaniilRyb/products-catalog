@@ -40,6 +40,8 @@
     "development": "webpack serve --open --config webpack.development.ts",
     "production": "webpack --config webpack.production.ts",
     "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -62,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.22.11",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "eslint": "^7.32.0",

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { CardProduct } from '../../entities/category-products/card-product/CardProduct';
 import { IProduct } from '../../entities/product/model/IProduct';
 import { useProducts } from '../../shared/hooks/use-products/useProducts';

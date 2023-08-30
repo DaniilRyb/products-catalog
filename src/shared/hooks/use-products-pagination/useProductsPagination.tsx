@@ -1,5 +1,6 @@
-import { useAppDispatch, useAppSelector } from '../../../store/typeHooks';
 import { useEffect } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../../store/typeHooks';
 import { getProductsPaginationSliceAction } from '../../../features/pagination/api/getProductsPaginationSliceAction';
 
 export const useProductsPagination = (limit: number, skip: number) => {

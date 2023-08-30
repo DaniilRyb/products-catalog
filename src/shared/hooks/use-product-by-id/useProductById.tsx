@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { useAppDispatch, useAppSelector } from '../../../store/typeHooks';
 import { getProductByIdAction } from '../../../entities/product/api/product/getProductByIdAction';
 export const useProductById = (id: string | undefined) => {

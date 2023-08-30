@@ -1,5 +1,6 @@
-import { useAppDispatch, useAppSelector } from '../../../store/typeHooks';
 import { useEffect } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../../store/typeHooks';
 import { getProductsAction } from '../../../entities/category-products/api/getProductsAction';
 
 export const useProducts = (productName: string | undefined) => {

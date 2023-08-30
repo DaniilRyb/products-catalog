@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+
 import { products } from '../entities/category-products/api/productsSlice';
 import { categories } from '../entities/categories/api/categories/categoriesSlice';
 import { productById } from '../entities/product/api/product/productByIdSlice';

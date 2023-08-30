@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+
 import { InputDebounce } from '../../../features/user-search-products/ui/input-debounce/InputDebounce';
 
 export const Header: FC = () => {

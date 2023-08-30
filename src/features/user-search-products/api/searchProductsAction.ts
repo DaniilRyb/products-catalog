@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+
 import { ICategory } from '../../../entities/categories/model/ICategory';
 
 export const searchProductsAction = createAsyncThunk<
