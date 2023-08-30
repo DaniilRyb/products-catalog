@@ -8,7 +8,7 @@ import { NotFound } from './pages/not-found/NotFound';
 import { Category } from './pages/category/Category';
 import { Product } from './pages/product/Product';
 import { BreadCrumbs } from './shared/ui/breadcrumbs/BreadCrumbs';
-import { AllProducts } from './pages/all-products/AllProducts';
+import { ProductsPagination } from './features/pagination/ui/products-pagination/ProductsPagination';
 import './app/index.css';
 
 const StyledMain = styled.main`
@@ -23,7 +23,7 @@ export const App: FC = () => {
         <BreadCrumbs />
         <Routes>
           <Route path='/' element={<Main />} />
-          <Route path='/all' element={<AllProducts />} />
+          <Route path='/all' element={<ProductsPagination />} />
           <Route path='/:category' element={<Category />} />
           <Route path='/:category/:id' element={<Product />} />
           <Route path='/:category/*' element={<NotFound />} />

@@ -36,9 +36,19 @@ const Page = factory(styled.div<{ isActive?: boolean }>`
   padding: 0.5rem;
   margin: 0.25rem;
   background-color: #ccc;
+  color: #000;
   border-radius: 3px;
   font-size: 1.25rem;
   font-weight: ${({ isActive }) => isActive && 'bold'};
+
+  &:hover {
+    background-color: #3d6fb0;
+    color: #fff;
+    transition:
+      background-color,
+      color 0.25s;
+    font-weight: ${({ isActive }) => isActive && 'bold'};
+  }
 `);
 
 const PageInfo = styled.div`
